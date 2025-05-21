@@ -13,7 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM alpine:3.16.3
+FROM alpine:3.21.3
 
-RUN apk add --update iptables && \
-    rm -rf /var/cache/apk/*
+# Install required packages
+RUN apk add iptables && apk add iptables-legacy && apk add iproute2 \
+    && rm -rf /var/cache/apk/*
